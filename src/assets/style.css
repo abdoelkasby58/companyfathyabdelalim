@@ -52,6 +52,7 @@ body {
   background: var(--concrete);
   color: var(--charcoal);
   overflow-x: hidden;
+
 }
 
 .home-page {
@@ -65,6 +66,7 @@ body {
   left: 0;
   z-index: 1000;
   background: var(--navy);
+
   backdrop-filter: blur(12px);
   border-bottom: 2px solid var(--gold);
   transition: all 0.3s ease;

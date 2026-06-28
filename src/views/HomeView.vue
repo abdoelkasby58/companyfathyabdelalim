@@ -1,16 +1,34 @@
 ﻿<script setup>
 import BaseButton from "@/components/BaseButton.vue";
-import HeroSection from "../components/sections/HeroSection.vue";
-import AboutSection from "../components/sections/AboutSection.vue";
-import ProductsSection from "../components/sections/ProductsSection.vue";
-import GallerySection from "../components/sections/GallerySection.vue";
-import WhyUsSection from "../components/sections/WhyUsSection.vue";
-import ContactSection from "../components/sections/ContactSection.vue";
-import FooterSection from "../components/sections/FooterSection.vue";
 import useHomePage from "../composables/useHomePage";
-import NavBar from "@/components/sections/NavBar.vue";
 import { Icon } from "@iconify/vue";
+import HeroSection from "../components/sections/HeroSection.vue";
+import NavBar from "@/components/sections/NavBar.vue";
+import { defineAsyncComponent } from "vue";
 
+const AboutSection = defineAsyncComponent(
+  () => import("../components/sections/AboutSection.vue"),
+);
+
+const ProductsSection = defineAsyncComponent(
+  () => import("../components/sections/ProductsSection.vue"),
+);
+
+const GallerySection = defineAsyncComponent(
+  () => import("../components/sections/GallerySection.vue"),
+);
+
+const WhyUsSection = defineAsyncComponent(
+  () => import("../components/sections/WhyUsSection.vue"),
+);
+
+const ContactSection = defineAsyncComponent(
+  () => import("../components/sections/ContactSection.vue"),
+);
+
+const FooterSection = defineAsyncComponent(
+  () => import("../components/sections/FooterSection.vue"),
+);
 const {
   navLinks,
   heroStats,
@@ -107,9 +125,9 @@ const openWhatsApp = () => {
       type="button"
       @click="scrollToSection('#home')"
     >
-       <Icon  icon="mdi:arrow-top" />
+      <Icon icon="mdi:arrow-top" />
     </button>
-    
+
     <button class="whatsapp-icon" type="button" @click="openWhatsApp">
       <Icon icon="mdi:whatsapp" />
     </button>

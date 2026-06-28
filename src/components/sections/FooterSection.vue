@@ -3,9 +3,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="icon-footer"><img :src="iconfathy" alt=""></div>
+          <div class="icon-footer"><img :src="iconfathy" alt="iconfathy" loading="lazy" decoding="async"></div>
         <div class="footer-brand-title">
-        <div class="footer-text">شركه فتحي عبدالعليم</div>
+        <div class="footer-text"> فتحي عبدالعليم</div>
         <div class="footer-sub">حدايد · بوهيا · أدوات صحية</div>
         </div>
         </div>
@@ -45,7 +45,7 @@
 
     <div class="footer-bottom">
       <div class="footer-copy">
-        © ٢٠٢٤ أبناء فتحي عبدالعليم · جميع الحقوق محفوظة
+        © 2005  فتحي عبدالعليم · جميع الحقوق محفوظة
       </div>
  
     </div>

@@ -22,7 +22,13 @@
           :key="item.label"
           :class="item.gridClass"
         >
-          <img :src="item.image" :alt="item.label" class="gallery-img" />
+          <img
+            :src="item.image"
+            :alt="item.label"
+            class="gallery-img"
+            loading="lazy"
+            decoding="async"
+          />
 
           <div class="gallery-fade"></div>
 
