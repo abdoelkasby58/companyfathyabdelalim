@@ -43,9 +43,17 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat-item" v-for="stat in heroStats" :key="stat.label">
-            <div class="stat-num">{{ stat.value }}</div>
-            <div class="stat-label">{{ stat.label }}</div>
+          <div class="stat-item">
+            <div class="stat-num">{{ experinceyears }}+</div>
+            <div class="stat-label">سنة خبرة</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">{{ clients }}+</div>
+            <div class="stat-label">عميل راض</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">{{ qualityassurance }}%</div>
+            <div class="stat-label">ضمان الجودة</div>
           </div>
         </div>
       </div>
@@ -84,10 +92,46 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import BaseButton from "../BaseButton.vue";
+import { onMounted, ref } from "vue";
+import gsap from "gsap";
 
 defineProps({
-  heroStats: Array,
   showcaseProducts: Array,
   scrollToSection: Function,
+});
+const experinceyears = ref(0);
+const clients = ref(0);
+const qualityassurance = ref(0);
+onMounted(() => {
+  gsap.to(experinceyears, {
+    value: 21,
+    duration: 6,
+    delay: 1,
+    ease: "power3.out",
+    roundProps: "value",
+    onUpdate: () => {
+      experinceyears.value = Math.floor(experinceyears.value);
+    },
+  });
+  gsap.to(clients, {
+    value: 1000,
+    duration:6,
+    delay: 1,
+    ease: "power3.out",
+    roundProps: "value",
+    onUpdate: () => {
+      clients.value = Math.floor(clients.value);
+    },
+  });
+  gsap.to(qualityassurance, {
+    value: 100,
+    duration: 6,
+    delay: 1,
+    ease: "power3.out",
+    roundProps: "value",
+    onUpdate: () => {
+      qualityassurance.value = Math.floor(qualityassurance.value);
+    },
+  });
 });
 </script>

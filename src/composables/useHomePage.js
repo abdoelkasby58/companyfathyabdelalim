@@ -22,12 +22,6 @@ export default function useHomePage() {
     { label: "تواصل معنا", href: "#contact" },
   ];
 
-  const heroStats = [
-    { value: "+21", label: "سنة خبرة" },
-    { value: "+1000", label: "عميل راض" },
-    { value: "100%", label: "ضمان الجودة" },
-  ];
-
   const showcaseProducts = [
     {
       icon: "mdi:palette-swatch",
@@ -309,7 +303,6 @@ export default function useHomePage() {
 
   return {
     navLinks,
-    heroStats,
     showcaseProducts,
     aboutIconItems,
     aboutFeatures,

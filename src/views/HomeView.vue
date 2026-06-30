@@ -71,7 +71,7 @@ const openWhatsApp = () => {
       :mobilemenu="mobileMenuOpen"
     />
     <HeroSection
-      :heroStats="heroStats"
+  
       :showcaseProducts="showcaseProducts"
       :scrollToSection="scrollToSection"
     />
