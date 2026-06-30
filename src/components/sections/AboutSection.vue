@@ -2,10 +2,15 @@
   <section class="about-section section-pad" id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-visual">
+        <div class="about-visual" v-reveal="{ x: -50, y: 0 }">
           <div class="about-img-frame">
             <div class="about-icon-grid">
-              <div class="about-icon-item" v-for="item in aboutIconItems" :key="item.label">
+              <div
+                class="about-icon-item"
+                v-for="(item, i) in aboutIconItems"
+                :key="item.label"
+                v-reveal="{ y: 20, delay: i * 0.08 }"
+              >
                 <Icon :icon="item.icon" class="about-item-icon" />
                 <span class="lbl">{{ item.label }}</span>
               </div>
@@ -16,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="about-text">
+        <div class="about-text" v-reveal="{ x: 50, y: 0, delay: 0.1 }">
           <span class="section-eyebrow">من نحن</span>
           <h2 class="section-title">محل متجذر في<br /><span class="accent">ثقة العملاء</span></h2>
           <p class="section-desc">
@@ -24,7 +29,12 @@
             نجمع بين خبرة الأجيال وحداثة الخدمة لنكون الخيار الأول لكل مقاول وصاحب منزل يبحث عن الجودة والسعر المناسب.
           </p>
           <div class="about-features">
-            <div class="about-feature" v-for="feature in aboutFeatures" :key="feature.title">
+            <div
+              class="about-feature"
+              v-for="(feature, i) in aboutFeatures"
+              :key="feature.title"
+              v-reveal="{ y: 20, delay: i * 0.1 }"
+            >
               <Icon :icon="feature.icon" class="feature-icon" />
               <div>
                 <div class="feature-title">{{ feature.title }}</div>

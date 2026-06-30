@@ -1,7 +1,7 @@
 <template>
   <section class="gallery-section section-pad" id="gallery">
     <div class="container">
-      <div class="gallery-header">
+      <div class="gallery-header" v-reveal>
         <span
           class="section-eyebrow"
           style="color: var(--gold); border-right-color: var(--gold)"
@@ -18,9 +18,10 @@
       <div class="gallery-grid">
         <div
           class="gallery-item"
-          v-for="item in galleryItems"
+          v-for="(item, i) in galleryItems"
           :key="item.label"
           :class="item.gridClass"
+          v-reveal="{ scale: 0.9, y: 20, delay: (i % 4) * 0.08 }"
         >
           <img
             :src="item.image"

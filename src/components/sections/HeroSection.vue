@@ -10,20 +10,20 @@
 
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow">
+        <div class="hero-eyebrow" ref="eyebrowEl">
           <span class="eyebrow-dot"></span>
           المورد الأول · المنصورة
         </div>
-        <h1 class="hero-title">
+        <h1 class="hero-title" ref="titleEl">
           <span class="gold">خبرة وثقة</span> <br />
           في الحدايد والبويات<br />
           <span class="stroke">والأدوات الصحية</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" ref="subtitleEl">
           أبناء فتحي عبدالعليم — وجهتك الأولى لأفضل مواد البناء والأدوات الصحية
           والبوهيا. نخدم أصحاب المنازل والمقاولين بأسعار الشركه وخدمة لا تنافس.
         </p>
-        <div class="hero-btns">
+        <div class="hero-btns" ref="btnsEl">
           <BaseButton
             variant="primary"
             type="button"
@@ -42,7 +42,7 @@
           </BaseButton>
         </div>
 
-        <div class="hero-stats">
+        <div class="hero-stats" ref="statsEl">
           <div class="stat-item">
             <div class="stat-num">{{ experinceyears }}+</div>
             <div class="stat-label">سنة خبرة</div>
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-visual" ref="visualEl">
         <div class="hero-card-stack">
           <div class="floating-badge">
             <span class="text">منذ سنة</span>
@@ -102,7 +102,51 @@ defineProps({
 const experinceyears = ref(0);
 const clients = ref(0);
 const qualityassurance = ref(0);
+
+// Refs for the hero entrance animation
+const eyebrowEl = ref(null);
+const titleEl = ref(null);
+const subtitleEl = ref(null);
+const btnsEl = ref(null);
+const statsEl = ref(null);
+const visualEl = ref(null);
+
 onMounted(() => {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    gsap
+      .timeline({ defaults: { ease: "power3.out" } })
+      .from(eyebrowEl.value, { opacity: 0, y: 20, duration: 0.6 })
+      .from(
+        titleEl.value,
+        { opacity: 0, y: 30, duration: 0.8 },
+        "-=0.35",
+      )
+      .from(
+        subtitleEl.value,
+        { opacity: 0, y: 20, duration: 0.7 },
+        "-=0.45",
+      )
+      .from(
+        btnsEl.value.children,
+        { opacity: 0, y: 16, duration: 0.6, stagger: 0.12 },
+        "-=0.4",
+      )
+      .from(
+        statsEl.value.children,
+        { opacity: 0, y: 16, duration: 0.6, stagger: 0.12 },
+        "-=0.35",
+      )
+      .from(
+        visualEl.value,
+        { opacity: 0, x: 40, duration: 0.9 },
+        "-=0.8",
+      );
+  }
+
   gsap.to(experinceyears, {
     value: 21,
     duration: 6,

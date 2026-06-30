@@ -4,6 +4,7 @@
       <div
         class="contact-header"
         style="text-align: center; margin-bottom: 3rem"
+        v-reveal
       >
         <span class="section-eyebrow">تواصل معنا</span>
         <h2 class="section-title">
@@ -17,8 +18,9 @@
         <div class="contact-info">
           <div
             class="contact-card"
-            v-for="card in contactCards"
+            v-for="(card, i) in contactCards"
             :key="card.label"
+            v-reveal="{ x: -30, y: 0, delay: i * 0.08 }"
           >
             <div class="contact-card-icon"><Icon :icon="card.icon" /></div>
             <div>
@@ -50,6 +52,7 @@
           ref="contactForm"
           class="contact-form-box"
           @submit.prevent="handleSubmit"
+          v-reveal="{ y: 30, delay: 0.1 }"
         >
           <div class="form-title">أرسل رسالة</div>
           <div class="form-grid">
@@ -109,7 +112,7 @@
             {{ submitBtnText }}
           </BaseButton>
         </form>
-        <div class="contact-google-maps">
+        <div class="contact-google-maps" v-reveal="{ y: 30, delay: 0.2 }">
           <div class="contact-map">
             <div class="contact-map-title">موقعنا على الخريطة</div>
             <div class="map-wrapper">

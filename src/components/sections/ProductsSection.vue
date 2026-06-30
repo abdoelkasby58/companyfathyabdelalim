@@ -1,7 +1,7 @@
 <template>
   <section class="products-section section-pad" id="products">
     <div class="container">
-      <div class="products-header">
+      <div class="products-header" v-reveal>
         <span class="section-eyebrow">ما نقدمه</span>
         <h2 class="section-title">
           منتجاتنا <span class="accent">الرئيسية</span>
@@ -14,8 +14,9 @@
       <div class="products-grid">
         <article
           class="product-card"
-          v-for="card in productCards"
+          v-for="(card, i) in productCards"
           :key="card.title"
+          v-reveal="{ y: 50, delay: i * 0.1 }"
         >
           <div class="product-card-top">
             <img
